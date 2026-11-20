@@ -7,6 +7,9 @@ const board = Array.from(
     ()=>Array,(columns).fill()
 )
 
+const boardElement = document.getElementById("game-board");
+
+function createBoard(){}
 
 function flipCard(){}
 
