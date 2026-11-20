@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import random
 import json
 
@@ -14,3 +14,18 @@ def tallenna_peli(peli):
 def hae_peli():
     with open(data, "r", encoding="utf-8") as tiedosto:
         return json.load(tiedosto)
+
+# Aloitussivu
+@app.route("/")
+def etusivu():
+    return render_template("index.html")
+
+# Pelisivu
+@app.route("/game")
+def pelisivu():
+    return render_template("game.html")
+
+# Ohjesivu
+@app.route("/instructions")
+def ohjesivu():
+    return render_template("instructions.html")
