@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+/* Koko sivun yleiset tyylit*/
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5ead5;
+    color:#3d2b1f;
+}
+
+/* Otsikot*/
+h1,h2{
+    color: #593b20;
+}
+
+/* Aloitussivu*/
+.etusivu{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* aloitus sisältölaatikon tyylit */
+.aloitus-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/*aloitussivun pääotsikon tyylit*/
+.aloitus-container{
+    font-size: 42px;
+}
+#start-form{
+    display:flex;
+    flex-direction: column;
+    gap: 12px;
+}
