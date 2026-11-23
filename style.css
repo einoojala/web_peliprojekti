@@ -1,57 +1,56 @@
+/* Määritetään kaikille elementeille laatikkomalli */
 * {
     box-sizing: border-box;
 }
-/* Koko sivun yleiset tyylit*/
-body{
+/* Määritetään koko sivun yleiset tyylit */
+body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f5ead5;
-    color:#3d2b1f;
+    color: #3d2b1f;
 }
-
-/* Otsikot*/
-h1,h2{
+/* Määritetään otsikoiden väri */
+h1, h2 {
     color: #593b20;
 }
 
-/* Aloitussivu*/
-.etusivu{
+/* ALOITUSSIVU */
+.etusivu {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
 }
-
-/* aloitus sisältölaatikon tyylit */
-.aloitus-container{
+/* Aloitussivun sisältölaatikon tyylit */
+.aloitus-container {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    max-width: 450px;
+    padding: 35px;
+    text-align: center;
+    background-color: #fffaf0;
+    border-radius: 20px;
 }
-
-/*aloitussivun pääotsikon tyylit*/
-.aloitus-container{
+/* Aloitussivun pääotsikon koko */
+.aloitus-container h1 {
     font-size: 42px;
 }
-/*aloituslomake*/
-#start-form{
-    display:flex;
+/* Aloituslomakkeen asettelu Flexboxilla */
+#start-form {
+    display: flex;
     flex-direction: column;
     gap: 12px;
     text-align: left;
 }
-/*lomakkeen tekstikenttein tyylit*/
-input{
+/* Lomakkeen tekstikenttien tyylit */
+input {
     padding: 12px;
     border: 1px solid #b99a6b;
     border-radius: 8px;
     font-size: 16px;
 }
 
-/*painikkeet*/
+/* PAINIKKEET */
 .main-button,
 .secondary-button {
     display: inline-block;
@@ -65,34 +64,41 @@ input{
     text-align: center;
     cursor: pointer;
 }
-
-/*painikkeen väri muuttuu, kun hiiri viedään sen päälle*/
-.main-button:hover
-.secondary-button:hover{
+/* Painikkeen väri muuttuu, kun hiiri viedään sen päälle */
+.main-button:hover,
+.secondary-button:hover {
     background-color: #4d321d;
 }
-
-.sedondary-button{
+/* Toissijaisen painikkeen omat tyylit */
+.secondary-button {
     margin-top: 12px;
     background-color: #9b774c;
 }
 
-/*virheilmoitus*/
-#error-message{
+/* VIRHEILMOITUS */
+#error-message {
     color: red;
 }
 
-.ohjesivu{
+/* OHJESIVU */
+.ohjesivu {
     min-height: 100vh;
     padding: 30px 15px;
 }
-
-/*ohjeiden sisältöjen tyyli*/
-.instructions-container{
+/* Ohjeiden sisältölaatikon tyylit */
+.instructions-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 30px;
     background-color: #fffaf0;
     border-radius: 15px;
     line-height: 1.6;
+}
+/* Ohjesivun pääotsikon keskitys */
+.instructions-container h1 {
+    text-align: center;
+}
+/* Ohjesivun osioiden väli */
+.instructions-container section {
+    margin-bottom: 25px;
 }
