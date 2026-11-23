@@ -1,15 +1,15 @@
-/* Määritetään kaikille elementeille laatikkomalli */
+/*  kaikille elementeille laatikkomalli */
 * {
     box-sizing: border-box;
 }
-/* Määritetään koko sivun yleiset tyylit */
+/*  koko sivun yleiset tyylit */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f5ead5;
     color: #3d2b1f;
 }
-/* Määritetään otsikoiden väri */
+/*  otsikoiden väri */
 h1, h2 {
     color: #593b20;
 }
@@ -22,7 +22,7 @@ h1, h2 {
     align-items: center;
     padding: 20px;
 }
-/* Aloitussivun sisältölaatikon tyylit */
+/* loitussivun sisältölaatikon tyylit */
 .aloitus-container {
     width: 100%;
     max-width: 450px;
@@ -64,13 +64,13 @@ input {
     text-align: center;
     cursor: pointer;
 }
-/* Painikkeen väri muuttuu, kun hiiri viedään sen päälle */
+/* Painikkeen väri muuttuu, kun hiiri viedään päälle */
 .main-button:hover,
-.secondary-button:hover {
+.instruction-button:hover {
     background-color: #4d321d;
 }
-/* Toissijaisen painikkeen omat tyylit */
-.secondary-button {
+/* Ohje napin omat tyylit */
+.instruction-button {
     margin-top: 12px;
     background-color: #9b774c;
 }
