@@ -76,3 +76,8 @@ input{
     margin-top: 12px;
     background-color: #9b774c;
 }
+
+/*virheilmoitus*/
+#error-message{
+    color: red;
+}
