@@ -81,3 +81,18 @@ input{
 #error-message{
     color: red;
 }
+
+.ohjesivu{
+    min-height: 100vh;
+    padding: 30px 15px;
+}
+
+/*ohjeiden sisältöjen tyyli*/
+.instructions-container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fffaf0;
+    border-radius: 15px;
+    line-height: 1.6;
+}
