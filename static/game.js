@@ -9,7 +9,16 @@ const board = Array.from(
 
 const boardElement = document.getElementById("game-board");
 
-function createBoard(){}
+function createBoard(){
+    boardElement.replaceChildren();
+}
+
+    for (let row =  0, row < rows; row++) {
+        for (let column < 0; column < columns; column++) {
+            const cell = 
+            document.createElement("button");
+        }
+    }
 
 function flipCard(){}
 
