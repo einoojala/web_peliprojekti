@@ -36,8 +36,43 @@ h1,h2{
 .aloitus-container{
     font-size: 42px;
 }
+/*aloituslomake*/
 #start-form{
     display:flex;
     flex-direction: column;
     gap: 12px;
+    text-align: left;
+}
+/*lomakkeen tekstikenttein tyylit*/
+input{
+    padding: 12px;
+    border: 1px solid #b99a6b;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/*painikkeet*/
+.main-button,
+.secondary-button {
+    display: inline-block;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 9px;
+    background-color: #76502e;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+/*painikkeen väri muuttuu, kun hiiri viedään sen päälle*/
+.main-button:hover
+.secondary-button:hover{
+    background-color: #4d321d;
+}
+
+.sedondary-button{
+    margin-top: 12px;
+    background-color: #9b774c;
 }
