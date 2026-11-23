@@ -5,39 +5,37 @@
     </head>
     <body>
         <h1>Aarrejahti</h1>
-        <p></p>
+<nav>
+  <ul>
+   <li><a href="game.html">Aloita peli</a></li>
+   <li><a href="instructions.html">Ohjeet</a></li>  
+  </ul>
+</nav>
 
-    <table style="width:100%">
-        <tr>
-            <th>Nimikenttä 1</th>
-            <th>Nimikentä 2</th>
-        </tr>
-        <tr>
-            <td>Pelaaja 1</td>
-            <td>Pelaaja 2</td>
-        </tr>
-    </table>
+    <div id="pelaajien-nimet">
+        <h2>Syötä pelaajien nimet</h2>
+        
+        <label for="pelaaja1">Pelaaja 1:</label>
+        <input type="text" id="pelaaja1" placeholder="Pelaajan 1 nimi">
 
-
-    <style>
-    body {
-        background-color: rgb(36, 87, 253);
-    }
-    h1 {
-        color: rgb(255, 255, 255);
-        margin-left: 40px;
-    }
-  </style>
-
-
+        <br><br>
+        
+        <label for="pelaaja2">Pelaaja 2:</label>
+        <input type="text" id="pelaaja2" placeholder="Pelaajan 2 nimi">
+        
+        <br><br>
+        
+        <button onclick="aloitaPeli()">Aloita peli</button>
+        <button onclick="aloitaPeli()">Ohjeet</button>
+    </div>
 
 
+    
+
+
+<link rel="stylesheet" href="game.html">
+<link rel="stylesheet" href="instructions.html">
+
+    
     </body>
-
-
-
-
-
-
-
 </html>
