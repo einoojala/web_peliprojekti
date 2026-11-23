@@ -52,7 +52,7 @@ input {
 
 /* PAINIKKEET */
 .main-button,
-.secondary-button {
+.instruction-button {
     display: inline-block;
     padding: 13px 20px;
     border: none;
