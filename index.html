@@ -1,36 +1,39 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Aarrejahti</title>
-    </head>
-    <body>
-        <h1>Aarrejahti</h1>
-<nav>
-  <ul>
-   <li><a href="game.html">Aloita peli</a></li>
-   <li><a href="instructions.html">Ohjeet</a></li>  
-  </ul>
-</nav>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarrejahti</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/static/main.js" defer></script>
+</head>
+<body class="etusivu">
+    <main class="aloitus-container">
+    <h1>Aarrejahti</h1>
+    <p>Kerää kolikoita ja voita!</p>
 
     <div id="pelaajien-nimet">
         <h2>Syötä pelaajien nimet</h2>
         
-        <label for="pelaaja1">Pelaaja 1:</label>
-        <input type="text" id="pelaaja1" placeholder="Pelaajan 1 nimi">
+        <form id="start-form">
+            <label for="pelaaja1">Pelaaja 1:</label>
+            <input type="text" id="pelaaja1" placeholder="Kirjoita nimi">
 
-        <br><br>
-        
-        <label for="pelaaja2">Pelaaja 2:</label>
-        <input type="text" id="pelaaja2" placeholder="Pelaajan 2 nimi">
-        
-        <br><br>
-        
+            
+            <label for="pelaaja2">Pelaaja 2:</label>
+            <input type="text" id="pelaaja2" placeholder="Kirjoita nimi">
+                
+            <p id="error-message"></p>
+            <button type="submit" class="main-button">
+                Aloita peli
+            </button>
+        </form>
     </div>
 
+    <a href="ohjeet" class="instruction-button">
+        Ohjeet
+    </a>
 
-<link rel="stylesheet" href="game.html">
-<link rel="stylesheet" href="instructions.html">
-
-    
-    </body>
+    </main>
+</body>
 </html>
