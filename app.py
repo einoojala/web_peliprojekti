@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify, request
 import random
 import json
 
@@ -94,3 +94,117 @@ def pelisivu():
 @app.route("/aarrejahti/ohjeet")
 def ohjesivu():
     return render_template("instructions.html")
+
+# Aloitta uuden pelin
+@app.route("/api/start", methods=["POST"])
+def aloita_peli():
+    tiedot = request.get_json()
+    # Tarkistetaan, että nimet on annettu
+    if not tiedot or "player1" not in tiedot or "player2" not in tiedot:
+        return jsonify({"error": "Kirjoita molempien pelaajien nimet."}), 400
+    nimi1 = tiedot["player1"].strip()
+    nimi2 = tiedot["player2"].strip()
+
+    if nimi1 == "" or nimi2 == "":
+        return jsonify({"error": "Kirjoita molempien pelaajien nimet."}), 400
+    if nimi1.lower() == nimi2.lower():
+        return jsonify({"error": "Pelaajilla pitää olla eri nimet."}), 400
+
+    #luodaan uusi korttipakka
+    kortit = luo_kortit()
+    #luodaan uuden pelin tiedot
+    peli = {
+        "pelaajat": [
+            {"nimi": nimi1, "kolikot": 0},
+            {"nimi": nimi2, "kolikot": 0}
+        ],
+        "vuoro": 0,
+        "kortit": luo_kortit,
+        "peli_loppu": False,
+        "voittaja": "",
+        "viesti": "Peli alkaa!"
+    }
+    #tallennetaan uusi peli tiedoston
+    tallenna_peli(peli)
+    return jsonify(pelin_naytettavat_tiedot(peli))
+
+#hakee käynnissä olevan pelin tiedot
+@app.route("/api/select", methods=["POST"])
+def valitse_kortit():
+    try:
+        peli = hae_peli()
+    except (FileNotFoundError, json.JSONDecodeError):
+        return jsonify({"error": "Peliä ei ole vielä aloitettu."}), 400
+    return jsonify(pelin_naytettavat_tiedot(peli))
+
+#Käsittelee pelaajan valitseman kortin
+@app.route("/api/select", methods=["POST"])
+def valitse_kortti():
+    try:
+        peli = hae_peli()
+    except (FileNotFoundError, json.JSONDecodeError):
+        return jsonify({"error": "Peliä ei ole vielä aloitettu."}), 400
+    # Tarkistetaan, onko peli jo päättynyt
+    if peli["peli_loppu"]:
+        return jsonify({"error": "Peli on jo päättynyt."}), 400
+    tiedot = request.get_json()
+
+    #tarkistetaan että pyynnössö oi korti tunnisdte
+    if not tiedot or "card_id" not in tiedot:
+        return jsonify({"error": "Kortin tietoja ei saatu."}), 400
+    kortin_id = tiedot["card_id"]
+    # Etsitään kortti sen tunnisteen perusteella
+    valittu_kortti = None
+
+    for kortti in peli["kortit"]:
+        if kortti["id"] == kortin_id:
+            valittu_kortti = kortti
+            break
+
+    # Tarkistetaan, löytyikö kortti
+    if valittu_kortti is None:
+        return jsonify({"error": "Korttia ei löytynyt."}), 400
+    #rkistetaan, onko kortti jo käännetty
+    if valittu_kortti["naytetty"]:
+        return jsonify({"error": "Tämä kortti on jo valittu."}), 400
+
+    # kenen vuoro on
+    pelaaja = peli["pelaajat"][peli["vuoro"]]
+    # Selvitetään toinen pelaaja
+    vastustaja = peli["pelaajat"][1 - peli["vuoro"]]
+    #äännetään valittu kortti näkyviin
+    valittu_kortti["naytetty"] = True
+
+    # tarkastetaan, mitä valittu kortti tekee
+    if valittu_kortti["tyyppi"] == "kolikko":
+        pelaaja["kolikot"] += 1
+        viesti = pelaaja["nimi"] + " sai yhden kolikon!"
+
+    elif valittu_kortti["tyyppi"] == "kulta":
+        peli["peli_loppu"] = True
+        peli["voittaja"] = pelaaja["nimi"]
+        viesti = pelaaja["nimi"] + " löysi kultaharkon ja voitti!"
+    elif valittu_kortti["tyyppi"] == "rosvo":
+        if pelaaja["kolikot"] > 0:
+            pelaaja["kolikot"] -= 1
+            viesti = "Rosvo vei yhden kolikon!"
+        else:
+            viesti = "Rosvo ei löytänyt kolikkoa."
+    elif valittu_kortti["tyyppi"] == "ryosto":
+        if vastustaja["kolikot"] > 0:
+            vastustaja["kolikot"] -= 1
+            pelaaja["kolikot"] += 1
+            viesti = "Sait yhden kolikon vastustajalta!"
+        else:
+            viesti = "Ryöstöretki ei onnistunut."
+    
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=3000, use_reloader=True)
