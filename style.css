@@ -2,11 +2,17 @@
 * {
     box-sizing: border-box;
 }
-/*  koko sivun yleiset tyylit */
+/* Koko sivun yleiset tyylit */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f5ead5;
+    background-image:
+        linear-gradient(rgba(245, 234, 213, 0.6), rgba(245, 234, 213, 0.6)),
+        url("taustakuva.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #3d2b1f;
 }
 /*  otsikoiden väri */
