@@ -160,3 +160,17 @@ def valitse_kortti():
         if kortti["id"] == kortin_id:
             valittu_kortti = kortti
             break
+
+    # Tarkistetaan, löytyikö kortti
+    if valittu_kortti is None:
+        return jsonify({"error": "Korttia ei löytynyt."}), 400
+    #rkistetaan, onko kortti jo käännetty
+    if valittu_kortti["naytetty"]:
+        return jsonify({"error": "Tämä kortti on jo valittu."}), 400
+
+    # kenen vuoro on
+    pelaaja = peli["pelaajat"][peli["vuoro"]]
+    # Selvitetään toinen pelaaja
+    vastustaja = peli["pelaajat"][1 - peli["vuoro"]]
+    #äännetään valittu kortti näkyviin
+    valittu_kortti["naytetty"] = True
