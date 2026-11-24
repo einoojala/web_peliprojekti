@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-image:
-        linear-gradient(rgba(245, 234, 213, 0.6), rgba(245, 234, 213, 0.6)),
+        linear-gradient(rgba(245, 234, 213, 0.7), rgba(245, 234, 213, 0.7)),
         url("taustakuva.jpg");
     background-size: cover;
     background-position: center;
@@ -34,7 +34,7 @@ h1, h2 {
     max-width: 450px;
     padding: 35px;
     text-align: center;
-    background-color: #fffaf0;
+    background-color: #fae8c4;
     border-radius: 20px;
 }
 /* Aloitussivun pääotsikon koko */
@@ -108,3 +108,7 @@ input {
 .instructions-container section {
     margin-bottom: 25px;
 }
+
+
+
+
