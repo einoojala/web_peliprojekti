@@ -1,28 +1,41 @@
-const rows = 10;
-
-const columns = 5;
+const ROWS = 10;
+const COLUMNS = 5;
 
 const board = Array.from(
-    {length: rows},
-    ()=>Array,(columns).fill()
-)
+    { length: ROWS },
+    () => Array(COLUMNS).fill(null)
+);
 
 const boardElement = document.getElementById("game-board");
 
-function createBoard(){
+function createBoard() {
     boardElement.replaceChildren();
-}
 
-    for (let row =  0, row < rows; row++) {
-        for (let column < 0; column < columns; column++) {
-        const cell = 
-        document.createElement("button");
+    for (let row = 0; row < ROWS; row++) {
+        for (let column = 0; column < COLUMNS; column++) {
+            const cell = document.createElement("button");
+
+            cell.type = "button";
+            cell.className = "cell";
+            cell.dataset.row = row;
+            cell.dataset.column = column;
+
+            cell.setAttribute(
+                "aria-label",
+                `Row ${row + 1}, column ${column + 1}`
+            );
+
+            cell.addEventListener("click", () => {
+                console.log("Clicked:", row, column);
+            });
+
+            boardElement.appendChild(cell);
+        }
     }
 }
 
-function flipCard(){}
+createBoard();
 
+function flipCard() {}
 
-function checkForMatch(){}
-
-
+function checkForMatch() {}
