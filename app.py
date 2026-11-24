@@ -109,3 +109,54 @@ def aloita_peli():
         return jsonify({"error": "Kirjoita molempien pelaajien nimet."}), 400
     if nimi1.lower() == nimi2.lower():
         return jsonify({"error": "Pelaajilla pitää olla eri nimet."}), 400
+
+    #luodaan uusi korttipakka
+    kortit = luo_kortit()
+    #luodaan uuden pelin tiedot
+    peli = {
+        "pelaajat": [
+            {"nimi": nimi1, "kolikot": 0},
+            {"nimi": nimi2, "kolikot": 0}
+        ],
+        "vuoro": 0,
+        "kortit": luo_kortit,
+        "peli_loppu": False,
+        "voittaja": "",
+        "viesti": "Peli alkaa!"
+    }
+    #tallennetaan uusi peli tiedoston
+    tallenna_peli(peli)
+    return jsonify(pelin_naytettavat_tiedot(peli))
+
+#hakee käynnissä olevan pelin tiedot
+@app.route("/api/select", methods=["POST"])
+def valitse_kortit():
+    try:
+        peli = hae_peli()
+    except (FileNotFoundError, json.JSONDecodeError):
+        return jsonify({"error": "Peliä ei ole vielä aloitettu."}), 400
+    return jsonify(pelin_naytettavat_tiedot(peli))
+
+#Käsittelee pelaajan valitseman kortin
+@app.route("/api/select", methods=["POST"])
+def valitse_kortti():
+    try:
+        peli = hae_peli()
+    except (FileNotFoundError, json.JSONDecodeError):
+        return jsonify({"error": "Peliä ei ole vielä aloitettu."}), 400
+    # Tarkistetaan, onko peli jo päättynyt
+    if peli["peli_loppu"]:
+        return jsonify({"error": "Peli on jo päättynyt."}), 400
+    tiedot = request.get_json()
+
+    #tarkistetaan että pyynnössö oi korti tunnisdte
+    if not tiedot or "card_id" not in tiedot:
+        return jsonify({"error": "Kortin tietoja ei saatu."}), 400
+    kortin_id = tiedot["card_id"]
+    # Etsitään kortti sen tunnisteen perusteella
+    valittu_kortti = None
+
+    for kortti in peli["kortit"]:
+        if kortti["id"] == kortin_id:
+            valittu_kortti = kortti
+            break
