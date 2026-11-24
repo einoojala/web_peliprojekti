@@ -174,3 +174,37 @@ def valitse_kortti():
     vastustaja = peli["pelaajat"][1 - peli["vuoro"]]
     #äännetään valittu kortti näkyviin
     valittu_kortti["naytetty"] = True
+
+    # tarkastetaan, mitä valittu kortti tekee
+    if valittu_kortti["tyyppi"] == "kolikko":
+        pelaaja["kolikot"] += 1
+        viesti = pelaaja["nimi"] + " sai yhden kolikon!"
+
+    elif valittu_kortti["tyyppi"] == "kulta":
+        peli["peli_loppu"] = True
+        peli["voittaja"] = pelaaja["nimi"]
+        viesti = pelaaja["nimi"] + " löysi kultaharkon ja voitti!"
+    elif valittu_kortti["tyyppi"] == "rosvo":
+        if pelaaja["kolikot"] > 0:
+            pelaaja["kolikot"] -= 1
+            viesti = "Rosvo vei yhden kolikon!"
+        else:
+            viesti = "Rosvo ei löytänyt kolikkoa."
+    elif valittu_kortti["tyyppi"] == "ryosto":
+        if vastustaja["kolikot"] > 0:
+            vastustaja["kolikot"] -= 1
+            pelaaja["kolikot"] += 1
+            viesti = "Sait yhden kolikon vastustajalta!"
+        else:
+            viesti = "Ryöstöretki ei onnistunut."
+    
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=3000, use_reloader=True)
