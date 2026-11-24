@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify, request
 import random
 import json
 
@@ -94,3 +94,18 @@ def pelisivu():
 @app.route("/aarrejahti/ohjeet")
 def ohjesivu():
     return render_template("instructions.html")
+
+# Aloitta uuden pelin
+@app.route("/api/start", methods=["POST"])
+def aloita_peli():
+    tiedot = request.get_json()
+    # Tarkistetaan, että nimet on annettu
+    if not tiedot or "player1" not in tiedot or "player2" not in tiedot:
+        return jsonify({"error": "Kirjoita molempien pelaajien nimet."}), 400
+    nimi1 = tiedot["player1"].strip()
+    nimi2 = tiedot["player2"].strip()
+
+    if nimi1 == "" or nimi2 == "":
+        return jsonify({"error": "Kirjoita molempien pelaajien nimet."}), 400
+    if nimi1.lower() == nimi2.lower():
+        return jsonify({"error": "Pelaajilla pitää olla eri nimet."}), 400
