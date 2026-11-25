@@ -1,25 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
   <head>
     <meta charset="UTF-8">
-    <title>Ohjeet</title>
-    <script src="ohjeet.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarrejahti - Ohjeet</title>
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <h1>Aarejahti Ohjeet</h1>
+  <body class="ohjesivu">
+    <main class="instructions-container">
+      <h1>Aarejahti Ohjeet</h1>
 
-    <section class="pelin-tavoite">
-      <h2>Pelin tavoite</h2>
-      <div class="tavoite">Tavoitteena on löytää kolme kolikkokorttia, jotta pelin voittaa.</div>
-      <div class="tavoite">Pelin voittaa heti, jos löytää kultaharkkokortin.</div>
-    </section>
+      p>
+                Aarrejahti on kahden pelaajan korttipeli.
+                Pelin tavoitteena on kerätä kolme kolikkoa
+                ennen vastustajaa.
+            </p>
+            <p>
+                Pelin voi voittaa myös löytämällä kultaharkon.
+            </p>
+        </section>
 
-     <section class="pelin-aloitus">
-      <h2>Miten peli aloitetaan</h2>
-      <div class="aloita">
-        <div class="aloita">Aloita peli painamalla painiketta aloita </div>
-      </div>
-    </section>
-  
+        <section>
+            <h2>Miten peli aloitetaan</h2>
+            <p>
+                Molemmat pelaajat kirjoittavat nimensä aloitusnäyttöön.
+                Tämän jälkeen painetaan Aloita peli -painiketta.
+            </p>
+        </section>
+
+        <section>
+            <h2>Pelin kulku</h2>
+            <p>
+                Pelaajat nostavat vuorotellen yhden kortin.
+                Kortin vaikutus toteutuu heti nostamisen jälkeen.
+            </p>
+        </section>
+
+        <section>
+            <h2>Korttien vaikutukset</h2>
+            <ul>
+                <li><strong>Kolikko:</strong> Saat yhden kolikon.</li>
+                <li><strong>Kultaharkko:</strong> Voitat pelin heti.</li>
+                <li><strong>Huti:</strong> Mitään ei tapahdu.</li>
+                <li><strong>Rosvo:</strong> Menetät yhden kolikon, jos sinulla on sellainen.</li>
+                <li><strong>Ryöstöretki:</strong> Saat vastustajalta yhden kolikon, jos hänellä on sellainen.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Voittaminen</h2>
+            <p>
+                Voitat pelin keräämällä kolme kolikkoa
+                tai löytämällä kultaharkon.
+            </p>
+            <p>
+                Jos kaikki kortit loppuvat, enemmän kolikoita
+                kerännyt pelaaja voittaa.
+            </p>
+        </section>
+
+        <a href="/" class="main-button">
+            Takaisin aloitusnäyttöön
+        </a>
+
+    </main>
   </body>
 </html>
