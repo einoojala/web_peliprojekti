@@ -20,7 +20,7 @@ h1, h2 {
     color: #593b20;
 }
 
-/* ALOITUSSIVU */
+/* Aloitussivu */
 .etusivu {
     min-height: 100vh;
     display: flex;
@@ -28,7 +28,7 @@ h1, h2 {
     align-items: center;
     padding: 20px;
 }
-/* loitussivun sisältölaatikon tyylit */
+/* aloitussivun sisältölaatikon tyylit */
 .aloitus-container {
     width: 100%;
     max-width: 450px;
@@ -37,7 +37,7 @@ h1, h2 {
     background-color: #fffaf0;
     border-radius: 20px;
 }
-/* ALOITUSSIVUN TEKSTIT */
+/* Aloitussivun tekstit */
 .aloitus-container h1 {
     font-size: 45px;
     margin-bottom: 15px;
@@ -51,14 +51,14 @@ h1, h2 {
     font-size: 18px;
     margin-bottom: 30px;
 }
-/* Aloituslomakkeen asettelu Flexboxilla */
+/* Aloituslomakkeen asettelu flexboxilla */
 #start-form {
     display: flex;
     flex-direction: column;
     gap: 12px;
     text-align: left;
 }
-/* Lomakkeen tekstikenttien tyylit */
+/* Lomakkeen tekstikentät */
 input {
     padding: 12px;
     border: 1px solid #b99a6b;
@@ -66,7 +66,7 @@ input {
     font-size: 16px;
 }
 
-/* PAINIKKEET */
+/* Painikkeet */
 .main-button,
 .instruction-button {
     display: inline-block;
@@ -85,23 +85,23 @@ input {
 .instruction-button:hover {
     background-color: #4d321d;
 }
-/* Ohje napin omat tyylit */
+/* Ohje napin tyylit */
 .instruction-button {
     margin-top: 12px;
     background-color: #9b774c;
 }
 
-/* VIRHEILMOITUS */
+/* Virheilmoitus */
 #error-message {
     color: red;
 }
 
-/* OHJESIVU */
+/* Ohjesivu */
 .ohjesivu {
     min-height: 100vh;
     padding: 30px 15px;
 }
-/* Ohjeiden sisältölaatikon tyylit */
+/* Ohjeiden sisältölaatikko */
 .instructions-container {
     max-width: 800px;
     margin: 0 auto;
@@ -110,7 +110,7 @@ input {
     border-radius: 15px;
     line-height: 1.6;
 }
-/* Ohjesivun pääotsikon keskitys */
+/* Ohjesivun pääotsikko*/
 .instructions-container h1 {
     text-align: center;
 }
@@ -119,6 +119,18 @@ input {
     margin-bottom: 25px;
 }
 
-
+/* Pelisivu */
+.pelisivu {
+    min-height: 100vh;
+    padding: 20px;
+}
+/* Pelisivun pääotsiko */
+.pelisivu h1 {
+    text-align: center;
+}
+.game-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
 
