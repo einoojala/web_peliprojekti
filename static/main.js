@@ -75,7 +75,43 @@ help.helpButton.addEventListener("click", () => {
 });
 
 async function updateGame() {
+
+
+    try {
+
+
+        const rsponse = await fetch("/get_game_data");
+
+
+        const gameData = await response.json();
+
+        if (!response.ok) {
+            console.error("Pelitietojen hakeminen epäonnistunut.");
+            return;
+        }
+
+
+        if  (gameData.game_over) {
+
+
+            document.getElementById("gameMessage").textContent =
+                gameData.winner + " voitti pelin!";
+
+
+
+            document.querySelectorAll(" .card").forEach(card => {
+                card.disabled = true;
+
+            });
+
+
+            return;
+
+        }
+        }
+    }
         
     
 
 )}
+
