@@ -18,6 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
         
         errornMessage.textContent = "";
 
+        if (player1Name == "" || player2Name === "") {
+            
+            errorMessage.textContent = "Anna molempien pelaajien nimet!";
+            return;
+
     }
 
+try {
+
+    const response = await fetch("/start_game", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    })
 }
+    
+}
+
