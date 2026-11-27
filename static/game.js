@@ -1,3 +1,10 @@
+
+const gamePage = document.getElementById("gamepage");
+const cardGrid = document.getElementById("card-grid");
+const turnMessage = document.getElementById("turn-message");
+const winnerMEssage = document.getElementById("winner-message");
+
+
 const ROWS = 10;
 const COLUMNS = 5;
 
