@@ -60,6 +60,22 @@ document.getElementById("player2Name").text.Content =
 
 } catch (error) {
 
-    
+    console.error("Virhe:", error);
+    errorMessage.textContent =
+        "Yhteys palvelimeen epäonnistui.";
+
 }
 
+{(;
+
+help.helpButton.addEventListener("click", () => {
+
+    document.getElementById("helpScreen").style.display = "block";
+    
+});
+
+async function updateGame() {
+        
+    
+
+)}
