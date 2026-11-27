@@ -2,6 +2,7 @@
 const gamePage = document.getElementById("gamepage");
 const cardGrid = document.getElementById("card-grid");
 const turnMessage = document.getElementById("turn-message");
+const cardMessage = document.getElementById("card-message");
 const winnerMEssage = document.getElementById("winner-message");
 
 
