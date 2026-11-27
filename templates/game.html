@@ -8,39 +8,55 @@
     <script src="/static/main.js" defer></script>
 </head>
 
-<body>
-    <main id="game"
-            data-state-url="/api/game"
-            data-draw-url="/api/game/draw">
-        <div class="players">
-            <section class="players">
-                <h2 id="player-1-name">Pelaaja 1</h2>
-                <p id="player-1-coins">0 kolikkoa</p>
-            </section>
-        <section class="player">
-            
-                <h2 id="player-2-name">Pelaaja 2</h2>
-                <p id="player-2-coins">0 kolikkoa</p>
-            </section>
-        </div>
-        <h1>Pelinäkymä</h1>
+<body class="pelisivu"> 
 
-        <div aria-live="polite"></div>
-            <p id="turn-message"></p>
-            <p id="card-message"></p>
-            <p id="winner-message" class="winner-message" hidden></p>
-        </div>
+    <h1>Aarrejahti</h1> 
 
-        <p id="error-message" role="alert" hidden></p>
+    <main class="game-container"> 
+        <section class="players"> 
+            <div class="player-box" id="player-one"> 
+                <h2 id="player1-name"></h2> 
+                <p class="player-points"> 
+                    Pisteet: <span id="player1-coins">0</span> 
+                </p> 
+            </div> 
+            <div class="player-box" id="player-two"> 
+                <h2 id="player2-name"></h2> 
+                <p class="player-points"> 
+                    Pisteet: <span id="player2-coins">0</span> 
+                </p> 
+            </div> 
+        </section> 
+        <section class="turn-section"> 
+            <h2 id="turn-message">Peli alkaa!</h2> 
+            <p id="card-message"> 
+                Valitse yksi korteista klikkaamall. 
+            </p> 
+        </section> 
+       
+        <section class="card-grid" id="card-grid"> </section> 
 
-        <section id="card-grid" aria-label="Pelikortit"></section>
+        <section id="winner-section" class="winner-section hidden"> 
+            <h2 id="winner-message"></h2> 
+            <div class="game-navigation"> 
+                <button id="restart-button" class="main-button"> 
+                    Aloita uudestaan 
+                </button> 
+                <a href="/" class="secondary-button"> 
+                    Palaa päävalikkoon 
+                </a> 
+            </div> 
+        </section> 
 
-        <nav class="game-navigation" aria-label="Pelin valikko">
-            <a class="button" href="/instructions">Ohjeet</a>
-            <a class="button" href="/">Valikko</a>
-        </nav>
-    </main>
-</body>
+        <nav class="game-navigation"> 
+            <a href="/aarrejahti/ohjeet" class="secondary-button"> 
+                Ohjeet 
+            </a> 
+            <a href="/aarrejahti/etusivu" class="secondary-button"> 
+                Menuvalikko 
+            </a> 
+        </nav> 
+    </main> 
+</body> 
 
-
-</html>
+</html> 
