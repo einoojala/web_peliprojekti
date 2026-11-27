@@ -15,5 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const player1Name = player1Input.Value.trim();
         const player2Name = player1Input.Value.trim();
 
+        
+        errornMessage.textContent = "";
+
     }
+
 }
