@@ -197,7 +197,11 @@ def valitse_kortti():
             viesti = "Sait yhden kolikon vastustajalta!"
         else:
             viesti = "Ryöstöretki ei onnistunut."
-    
+            
+    # Pelaaja voittaa, jos hänellä on vähintään kolme kolikkoa
+    if pelaaja["kolikot"] >= 3 and not peli["peli_loppu"]:
+        peli["peli_loppu"] = True
+        peli["voittaja"] = pelaaja["nimi"]
 
 
 
