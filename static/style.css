@@ -151,12 +151,12 @@ input {
 }
 
 .player-points{
-    font-size: 22px;
+    font-size: 38px;
     font-weight: bold;
 }
 
 .player-points span {
-    font-size: 32px;
+    font-size: 38px;
     font-weight: bold;
     color: #76502e;
 }
