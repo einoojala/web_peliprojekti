@@ -33,7 +33,33 @@ try {
             "Content-Type": "application/json"
         },
     })
+});
+
+
+const gameData = await response.json();
+
+
+if (!response.ok || gameData.error) {
+    errorMessage.textContent =
+       gameData.error || "Pelin aloittaminen epäonnistunut.";
+    return;
 }
+
+
+document.getElementById("startScreen").style.display = "none";
+document.getElementById("gameScreen").style.display = "block";
+
+
+document.getElementById("player1Name").text.Content =
+   gameData.Player1;
+
+
+document.getElementById("player2Name").text.Content =
+   gameData.Player2;
+
+
+} catch (error) {
+
     
 }
 
